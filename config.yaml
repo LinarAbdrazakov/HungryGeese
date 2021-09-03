@@ -1,0 +1,33 @@
+
+env_args:
+    env: 'HungryGeese'
+    source: 'handyrl.envs.kaggle.hungry_geese'
+
+
+train_args:
+    turn_based_training: False  # always False for Hungry Geese
+    observation: False
+    gamma: 0.999
+    forward_steps: 100
+    compress_steps: 4
+    entropy_regularization: 2.0e-3
+    entropy_regularization_decay: 0.3
+    update_episodes: 500
+    batch_size: 800  # GPU memory 10GB
+    minimum_episodes: 100
+    maximum_episodes: 5000  # RAM 64GB
+    eval_rate: 0.1
+    epochs: 500
+    num_batchers: 7
+    worker:
+        num_parallel: 8
+    lambda: 0.7
+    policy_target: 'TD'
+    value_target: 'TD'
+    seed: 0
+    restart_epoch: 187
+
+
+worker_args:
+    server_address: ''
+    num_parallel: 8
